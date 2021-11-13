@@ -1,31 +1,40 @@
-<p id="notice"><%= notice %></p>
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Shirts</h1>
+        <p class="lead text-muted" id="notice"><%= notice %></p>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Size</th>
+              <th scope="col">Shirts Taken</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
 
-<h1>Shirts</h1>
+          <tbody>
+            <% @shirts.each do |shirt| %>
+              <tr>
+                <td><%= shirt.name %></td>
+                <td><%= shirt.size %></td>
+                <td><%= shirt.numtaken %></td>
+                <td><%= link_to 'Show', shirt %></td>
+                <td><%= link_to 'Edit', edit_shirt_path(shirt) %></td>
+                <td><%= link_to 'Destroy', shirt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Size</th>
-      <th>Numtaken</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <br>
 
-  <tbody>
-    <% @shirts.each do |shirt| %>
-      <tr>
-        <td><%= shirt.name %></td>
-        <td><%= shirt.size %></td>
-        <td><%= shirt.numtaken %></td>
-        <td><%= link_to 'Show', shirt %></td>
-        <td><%= link_to 'Edit', edit_shirt_path(shirt) %></td>
-        <td><%= link_to 'Destroy', shirt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <%= link_to 'New Shirt', new_shirt_path %>
+      </div>
+    </div>
+  </section>
+</main>
 
-<br>
 
-<%= link_to 'New Shirt', new_shirt_path %>
