@@ -1,32 +1,44 @@
 <%= form_with(model: shirt) do |form| %>
-  <% if shirt.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(shirt.errors.count, "error") %> prohibited this shirt from being saved:</h2>
+  <div class="form-group">
+    <% if shirt.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(shirt.errors.count, "error") %> prohibited this shirt from being saved:</h2>
 
-      <ul>
-        <% shirt.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+        <ul>
+          <% shirt.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.text_field :size %>
+  <div class="form-group">
+    <%= form.label :name, "Name:", class: "col-md-4 control-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :numtaken %>
-    <%= form.number_field :numtaken %>
+  <div class="form-group">
+    <label for="sizeSelect1">Size</label>
+    <%= form.select :size, [['XS',1], ['S',2], ['M',3], ['L',4], ['XL',5]], {}, {class:"form-control", id:"sizeSelect"}  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">          
+    <label for="numOfShirts">Number of shirts</label>
+    <%= form.number_field :numtaken, {class:"form-control", id:"numOfShirts"}  %>
   </div>
+
+  <div class="form-group">          
+    <label for="takeDate"></label>
+    <%= form.date_field :takedate, {class:"form-control", id:"takeDate"}  %>
+  </div>
+
+  <br>
+  <div class="form-group">          
+    <div class="actions">
+      <%= form.submit :class => 'btn btn-primary' %>
+    </div>  
+  </div>
+
+
 <% end %>

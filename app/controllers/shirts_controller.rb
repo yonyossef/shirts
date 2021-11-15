@@ -64,6 +64,6 @@ class ShirtsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def shirt_params
-      params.require(:shirt).permit(:name, :size, :numtaken)
+      params.require(:shirt).permit(:name, :size, :numtaken, :takedate)
     end
 end

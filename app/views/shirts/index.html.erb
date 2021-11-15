@@ -1,7 +1,4 @@
-<main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
+
         <h1 class="fw-light">Shirts</h1>
         <p class="lead text-muted" id="notice"><%= notice %></p>
         
@@ -11,6 +8,7 @@
               <th scope="col">Name</th>
               <th scope="col">Size</th>
               <th scope="col">Shirts Taken</th>
+              <th scope="col">Date</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -21,6 +19,7 @@
                 <td><%= shirt.name %></td>
                 <td><%= shirt.size %></td>
                 <td><%= shirt.numtaken %></td>
+                <td><%= shirt.takedate ? shirt.takedate.strftime('%Y-%m-%d') : 'None' %></td>
                 <td><%= link_to 'Show', shirt %></td>
                 <td><%= link_to 'Edit', edit_shirt_path(shirt) %></td>
                 <td><%= link_to 'Destroy', shirt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,9 +31,6 @@
         <br>
 
         <%= link_to 'New Shirt', new_shirt_path %>
-      </div>
-    </div>
-  </section>
-</main>
+
 
 
