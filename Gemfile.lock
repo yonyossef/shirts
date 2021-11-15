@@ -85,7 +85,7 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.11.2)
+    jbuilder (2.11.3)
       activesupport (>= 5.0.0)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -148,6 +148,7 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.1.1)
     rexml (3.2.5)
+    ruby_http_client (3.5.2)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -164,6 +165,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sendgrid-ruby (6.6.0)
+      ruby_http_client (~> 3.4)
     spring (3.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -215,6 +218,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   sass-rails (>= 6)
   selenium-webdriver
+  sendgrid-ruby
   spring
   turbolinks (~> 5)
   tzinfo-data

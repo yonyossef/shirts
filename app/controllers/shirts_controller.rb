@@ -25,6 +25,10 @@ class ShirtsController < ApplicationController
 
     respond_to do |format|
       if @shirt.save
+        puts "MAILING NEW SHIRT START"
+        ShirtMailer.new_shirt(@shirt).deliver!
+        puts "MAILING NEW SHIRT END"
+
         format.html { redirect_to @shirt, notice: "Shirt was successfully created." }
         format.json { render :show, status: :created, location: @shirt }
       else
