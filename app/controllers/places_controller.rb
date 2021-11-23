@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
     DEV_URL = 'http://localhost:3000'
     PROD_URL = 'https://schengine.herokuapp.com'
 
-    URL = DEV_URL
+    URL = ENV["RAILS_ENV"] == 'development' ? DEV_URL : PROD_URL
 
     def index
         @json_places = get_places 
@@ -26,12 +26,14 @@ class PlacesController < ApplicationController
 
     def get_place
         url = URL + '/api/v1/places/' + @place_id
+        puts 'requesting data from api on ' + url
         response = RestClient.get(url)
         # render json: response
     end
 
     def get_places
         url = URL + '/api/v1/places'
+        puts 'requesting data from api on ' + url
         response = RestClient.get(url)
         # render json: response
     end
