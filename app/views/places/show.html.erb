@@ -1,0 +1,31 @@
+<h1 class="fw-light"><%= @place['name']%></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID</strong>
+  <%= @place['id'] %>
+</p>
+
+<p>
+  <strong>Employees</strong>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+      </th>
+    </thead>
+    <tbody>
+      <% @place['employees'].each do |emp| %>
+        <tr>
+          <td><%= emp['name'] %></td>
+          <td><%= emp['id'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</p>
+
+<%= link_to 'Edit', '/places' %> |
+<%= link_to 'Back', '/places' %>
