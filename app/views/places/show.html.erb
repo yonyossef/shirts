@@ -27,5 +27,6 @@
   </table>
 </p>
 
-<%= link_to 'Edit', '/places' %> |
+<%= link_to 'Employee Index', '/places/' + @place['id'].to_s + '/employees' %> |
+<%= link_to 'Edit', '/places/' + @place['id'].to_s + '/edit' %> |
 <%= link_to 'Back', '/places' %>

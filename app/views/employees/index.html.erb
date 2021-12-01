@@ -1,0 +1,29 @@
+<h1 class="fw-light">Employees</h1>
+<p class="lead text-muted" id="notice"><%= notice %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">ID</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emps.each do |employee| %>
+      <tr>
+        <td><%= employee['name'] %></td>
+        <td><%= employee['id'] %></td>
+        <td><%= link_to 'Show', employee %> | 
+            <%= link_to 'Edit', '/places' %> |
+            <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr><td>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', :back %> | 
+<%= link_to 'New Employee', '/places' %>

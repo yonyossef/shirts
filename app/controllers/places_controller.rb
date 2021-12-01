@@ -1,12 +1,5 @@
 class PlacesController < ApplicationController
     before_action :get_place, only: %i[ show edit destroy ]
-    require 'rest-client'
-    require 'json'
-    
-    DEV_URL = 'http://localhost:3000'
-    PROD_URL = 'https://schengine.herokuapp.com'
-
-    URL = ENV["RAILS_ENV"] == 'development' ? DEV_URL : PROD_URL
 
     def index
         @json_places = get_places 
